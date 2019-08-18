@@ -14,6 +14,10 @@ golang:
   - net/http
 nodejs:
   - express
+c++:
+  - pistache
+R:
+  - plumber
 ```
 
 ## Benchmarking tools
