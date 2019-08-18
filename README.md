@@ -5,10 +5,11 @@ Benchmarking webservers build using different languages and libraries
 ```yaml
 python:
   - aiohttp
-  - sonic
+  - sanic
   - tornado
-  - facon
+  - falcon
   - flask
+  - werkzeug
 golang:
   - net/http
 nodejs:
