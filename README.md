@@ -15,6 +15,7 @@ golang:
 nodejs:
   - express
 c++:
+  - crow
   - pistache
 R:
   - plumber
