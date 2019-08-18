@@ -1,2 +1,1 @@
-sanic
-pyinstaller
+sanic >= 19.6.2

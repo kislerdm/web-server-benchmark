@@ -3,7 +3,7 @@ from sanic import Sanic, response
 PORT = 4500
 
 async def handler(request):
-    return response.text('Hello world!')
+    return response.text("Hello world!")
 
 if __name__ == "__main__":
     app = Sanic()

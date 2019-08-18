@@ -6,4 +6,7 @@ COPY . .
 
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
-CMD python api.py
+ENV HOST "0.0.0.0"
+ENV PORT 4500
+
+ENTRYPOINT gunicorn -b "${HOST}:${PORT}" api:app
