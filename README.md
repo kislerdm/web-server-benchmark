@@ -1,6 +1,6 @@
 # Web-servers benchmark
 
-Benchmarking webservers build using different languages and libraries
+Benchmarking webservers built using different languages and libraries
 
 ```yaml
 python:
@@ -17,10 +17,26 @@ nodejs:
 c++:
   - crow
   - pistache
+kotlin:
+  - ktor
 R:
   - plumber
 ```
 
-## Benchmarking tools
+# Benchmarking tools
 
 <a href="https://github.com/wg/wrk/" target="_blank">wrk</a>
+
+# Tests
+
+Since <em>application/json</em> is the most used API reponse type, json serialization is being tested.
+
+## Hello World!
+
+## API json contract
+
+The API response is expected as:
+
+```json
+{"data": "Hello World!"}
+```
