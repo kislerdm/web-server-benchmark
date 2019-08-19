@@ -7,7 +7,8 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World!"))
+	w.Header().Set("Content-Type", "application/json")
+	w.Write([]byte(`{"data": "Hello World!"}`))
 }
 
 func main() {
