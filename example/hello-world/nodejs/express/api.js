@@ -3,7 +3,8 @@ var express = require('express'),
   port = 4500;
 
 app.get('/', function(req, res) {
-  res.end("Hello World!");
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({ data: "Hello World!" }));
 })
 
 app.listen(port);

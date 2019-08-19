@@ -1,4 +1,7 @@
 #* @get /
-handler <- function() {
-  return ("Hello World!")
+handler <- function(res) {
+  res$status <- 200  
+  list(
+    data = "Hello World!"
+  )
 }
