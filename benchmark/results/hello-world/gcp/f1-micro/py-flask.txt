@@ -1,0 +1,92 @@
+Running 10s test @ http://0.0.0.0:4500/
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   504.57us  116.53us   4.76ms   98.58%
+    Req/Sec     1.84k    91.48     1.93k    71.00%
+  18313 requests in 10.00s, 3.07MB read
+Requests/sec:   1831.22
+Transfer/sec:    314.76KB
+---
+summary_latency
+percentile,latency_us
+1e-06,449
+5,460
+25,469
+50,482
+75,524
+95,582
+99,635
+100,4757
+---
+summary_requests
+percentile,requests
+1e-06,1550
+5,1710
+25,1737
+50,1890
+75,1910
+95,1929
+99,1929
+100,1929
+--new-test--
+Running 10s test @ http://0.0.0.0:4500/
+  1 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    54.82ms    3.21ms  68.58ms   85.70%
+    Req/Sec     1.83k    63.66     1.89k    84.00%
+  18171 requests in 10.00s, 3.05MB read
+Requests/sec:   1816.69
+Transfer/sec:    312.24KB
+---
+summary_latency
+percentile,latency_us
+1e-06,3334
+5,53414
+25,53955
+50,54181
+75,54506
+95,60035
+99,61281
+100,68578
+---
+summary_requests
+percentile,requests
+1e-06,1610
+5,1670
+25,1830
+50,1850
+75,1860
+95,1880
+99,1888
+100,1888
+--new-test--
+Running 10s test @ http://0.0.0.0:4500/
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    55.01ms   11.32ms  73.75ms   85.96%
+    Req/Sec   179.51     62.90   484.00     78.00%
+  17034 requests in 10.01s, 2.86MB read
+Requests/sec:   1700.99
+Transfer/sec:    292.37KB
+---
+summary_latency
+percentile,latency_us
+1e-06,22645
+5,23437
+25,54788
+50,56184
+75,61731
+95,64470
+99,70135
+100,73748
+---
+summary_requests
+percentile,requests
+1e-06,9
+5,100
+25,131
+50,200
+75,202
+95,202
+99,424
+100,484
