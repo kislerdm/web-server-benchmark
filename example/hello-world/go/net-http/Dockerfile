@@ -13,7 +13,6 @@ COPY --from=build /runner.sh /
 
 RUN apk add wrk \
   && wget -O wrk_benchmark.sh https://raw.githubusercontent.com/kislerdm/web-server-benchmark/master/benchmark/wrk_benchmark.sh \
-  && wget -O benchmark_summary.lua https://raw.githubusercontent.com/kislerdm/web-server-benchmark/master/benchmark/benchmark_summary.lua \
-  && sh runner.sh
+  && wget -O benchmark_summary.lua https://raw.githubusercontent.com/kislerdm/web-server-benchmark/master/benchmark/benchmark_summary.lua
 
-CMD [ "/bin/sh" ]
+CMD ./run_server
