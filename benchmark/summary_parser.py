@@ -6,25 +6,16 @@ import json
 import pickle
 from typing import Tuple, List
 
-EXAMPLE = 'hello-world'
-DIR = os.path.abspath(os.path.dirname(__file__))
+EXAMPLE = 'hello-world/gcp/g1-small'
+DIR = os.getcwd()
 PATH_RESULTS = os.path.join(DIR, f"results/{EXAMPLE}")
 
 SPLIT_PATTERN = "---"
+SPLIT_TESTS = "--new-test--"
 
 
 def parser(document: str) -> Tuple[dict, str]:
     """ Function to parse summary file """
-    
-    template = {
-      "duration": None,
-      "threads": None,
-      "connections": None,
-      "requests": None,
-      "total_time": None,
-      "latency": {},
-      "req_throughput": {}
-    }
     
     def _scanner(pattern: str, search_str: str, **args) -> str:
       found_element = re.findall(pattern, search_str, **args)
@@ -51,25 +42,40 @@ def parser(document: str) -> Tuple[dict, str]:
           return None
         
         return columns
-        
-    document_list = [i.strip() for i in document.split(SPLIT_PATTERN)]
     
-    # parse pt.1 of the summary
-    try:
-      template['duration'] = int(_scanner("Running (\d+).? test", document_list[0], flags=re.I))
-      template['threads'] = int(_scanner("(\d+) threads", document_list[0], flags=re.I))
-      template['connections'] = int(_scanner("(\d+) connections", document_list[0], flags=re.I))
-      template['requests'] = int(_scanner("(\d+) requests in", document_list[0], flags=re.I))
-      template['total_time'] = float(_scanner("requests in (\d+.\d+).?,", document_list[0], flags=re.I))
-    except Exception as ex:
-      return None, f"Parsing of the 1st summary part error:\n{ex}"  
+    list_tests = []
+    
+    for doc in document.split(SPLIT_TESTS):
+      template = {
+          "duration": None,
+          "threads": None,
+          "connections": None,
+          "requests": None,
+          "total_time": None,
+          "latency": {},
+          "req_throughput": {}
+      }
+      
+      document_list = [i.strip() for i in doc.split(SPLIT_PATTERN)]
+      
+      # parse pt.1 of the summary
+      try:
+        template['duration'] = int(_scanner("Running (\d+).? test", document_list[0], flags=re.I))
+        template['threads'] = int(_scanner("(\d+) threads", document_list[0], flags=re.I))
+        template['connections'] = int(_scanner("(\d+) connections", document_list[0], flags=re.I))
+        template['requests'] = int(_scanner("(\d+) requests in", document_list[0], flags=re.I))
+        template['total_time'] = float(_scanner("requests in (\d+.\d+).?,", document_list[0], flags=re.I))
+      except Exception as ex:
+        return None, f"Parsing of the 1st summary part error:\n{ex}"  
 
-    # parse pt.2 of the summary
-    template['latency'] = _tab_parser(document_list[1].split('\n')[1:])
-    # parse pt.3 of the summary
-    template['req_throughput'] = _tab_parser(document_list[2].split('\n')[1:])
+      # parse pt.2 of the summary
+      template['latency'] = _tab_parser(document_list[1].split('\n')[1:])
+      # parse pt.3 of the summary
+      template['req_throughput'] = _tab_parser(document_list[2].split('\n')[1:])
+      
+      list_tests.append(template)
 
-    return template, None  
+    return list_tests, None
   
 
 def reader(path: str) -> Tuple[List[str], str]:
