@@ -1,0 +1,83 @@
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <div id="myDiv"></div>
+  <script>
+    var trace0 = {
+      y: [4187, 28290, 28565, 28565, 28747, 28969],
+      type: 'box',
+      name: 'go-net/http',
+    };
+
+    var traceNode = {
+      y: [929, 16210, 16424, 16424, 16540, 16696],
+      type: 'box',
+      name: 'nodejs-express',
+    };
+
+    var tracePySanic = {
+      y: [2702, 9707, 9800, 9800, 9870, 9979],
+      type: 'box',
+      name: 'py-sanic',
+    };
+
+    var tracePyAiohttp = {
+      y: [2580, 2750, 2780, 2780, 2800, 2838],
+      type: 'box',
+      name: 'py-aiohttp',
+    };
+
+    var tracePyTorando = {
+    y: [735, 2740, 2760, 2760, 2780, 2818],
+    type: 'box',
+    name: 'py-tornado',
+    };
+
+    var tracePyFalcon = {
+      y: [2150, 2580, 2626, 2626, 2707],
+      type: 'box',
+      name: 'py-falcon',
+    };
+
+    var tracePyFlask = {
+      y: [385, 1880, 1909, 1909, 1919, 1949],
+      type: 'box',
+      name: 'py-flask',
+    };
+
+    var tracePyWerkzeug = {
+      y: [1240, 1300, 1313, 1313, 1333, 1363],
+      type: 'box',
+      name: 'py-werkzeug',
+    };
+
+    var traceRPlumber = {
+      y: [10, 660, 670, 670, 707, 707],
+      type: 'box',
+      name: 'r-plumber',
+    };
+
+    var traceJulia = {
+      y: [10, 19, 20, 20, 20, 20],
+      type: 'box',
+      name: 'julia-genie',
+    };
+      
+    var data = [trace0, traceNode, tracePySanic, 
+                tracePyAiohttp, tracePyTorando, tracePyFalcon,
+                tracePyFlask, tracePyWerkzeug, traceRPlumber, traceJulia];
+
+    var layout = {
+      title: 'Throughput for 1 connection, 1 thread',
+      yaxis: {
+        title: 'Requests per sec.',
+        zeroline: true,
+      },
+    };
+
+    Plotly.newPlot('myDiv', data, layout);
+
+  </script>
+</body>
