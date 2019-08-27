@@ -4,42 +4,6 @@ Benchmarking webservers built using different languages and libraries
 
 ```yaml
 python:
-  - aiohttp
-  - sanic
-  - tornado
-  - falcon
-  - flask
-  - werkzeug
-golang:
-  - net/http
-nodejs:
-  - express
-R:
-  - plumber
-julia:
-  - Genie
-```
-
-# Benchmarking tools
-
-<a href="https://github.com/wg/wrk/" target="_blank">wrk</a>
-
-## Hardware/Enviroment
-
-Tests were performed on a GCP <em>g1-small</em> machine, configs:
-
-```yaml
-instance:
-  - type: g1-small
-  - os-image: debian-cloud/debian-9-stretch-v20190813
-  - cpu: Intel(R) Xeon(R) CPU @ 2.00GHz
-  - ram: 1.7G
-```
-
-## Software
-
-```yaml
-python:
   - version: 3.7.4
   - libs:
     - aiohttp: 3.5.4
@@ -67,7 +31,23 @@ julia:
     - Genie: 0.15.0
 ```
 
-# Tests
+# Benchmarking tools
+
+<a href="https://github.com/wg/wrk/" target="_blank">wrk</a>
+
+## Hardware/Enviroment
+
+Tests were performed on a GCP <em>g1-small</em> machine, configs:
+
+```yaml
+instance:
+  - type: g1-small
+  - os-image: debian-cloud/debian-9-stretch-v20190813
+  - cpu: Intel(R) Xeon(R) CPU @ 2.00GHz
+  - ram: 1.7G
+```
+
+# Test
 
 Since <em>application/json</em> is the most used API reponse type, json serialization is being tested.
 
@@ -81,3 +61,6 @@ The API response is expected as:
 {"data": "Hello World!"}
 ```
 
+# Contribution
+
+Feel free to add more benchmarks and open a pull request
