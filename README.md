@@ -59,6 +59,10 @@ The API response is expected as:
 {"data": "Hello World!"}
 ```
 
+## Result
+
+![Throughput](https://github.com/kislerdm/web-server-benchmark/tree/master/benchmark/results/hello-world/gcp/g1-small/c1_t1_d10.jpg)
+
 # Contribution
 
 Feel free to add more benchmarks and open a pull request
