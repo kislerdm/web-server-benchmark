@@ -5,10 +5,16 @@
 <body>
   <div id="myDiv"></div>
   <script>
-    var trace0 = {
+    var traceGoLang = {
       y: [4187, 28290, 28565, 28565, 28747, 28969],
       type: 'box',
       name: 'go-net/http',
+    };
+
+    var traceNginx = {
+      y: [23770, 25730, 26242, 26242, 26440, 26868],
+      type: 'box',
+      name: 'nginx-openresty',
     };
 
     var traceNode = {
@@ -65,7 +71,7 @@
       name: 'julia-genie',
     };
       
-    var data = [trace0, traceNode, tracePySanic, 
+    var data = [traceGoLang, traceNginx, traceNode, tracePySanic,
                 tracePyAiohttp, tracePyTorando, tracePyFalcon,
                 tracePyFlask, tracePyWerkzeug, traceRPlumber, traceJulia];
 
