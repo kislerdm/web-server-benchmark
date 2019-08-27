@@ -132,4 +132,4 @@ The API response is expected as:
 
 # Contribution
 
-Feel free to add more benchmarks and open a pull request
+Feel free to add more benchmark tests and open a pull request
