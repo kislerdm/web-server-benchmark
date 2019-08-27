@@ -50,21 +50,21 @@ python:
     - werkzeug: 0.15.5
     - gunicorn: 19.9.0
 go: 
-  - version: 1.12.9
-  - libs: 
-    - net/nttp
-nodejs:
-  - version: 
+  - version: 1.12.7
   - libs: 
     - net/nttp: 
+nodejs:
+  - version: 12.9.1
+  - libs: 
+    - express: ^4.17.1
 r:
   - version: 3.6.1
   - libs:
-    - plumber: 
+    - plumber: 0.4.6
 julia:
   - version: 1.1.1
   - libs:
-    - Genie: 
+    - Genie: 0.15.0
 ```
 
 # Tests
