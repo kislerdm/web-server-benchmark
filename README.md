@@ -49,8 +49,6 @@ instance:
 
 # Test
 
-Since <em>application/json</em> is the most used API reponse type, json serialization is being tested.
-
 ## Hello World!
 
 ## API json contract
