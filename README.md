@@ -98,15 +98,15 @@ go build -o run_server api.go
 
 ```bash
 cd web-server-benchmark/benchmark
-export REULTS_WRK=${PWD}/results/hello-world/gcp/g1-small/raw/go-net-http.txt
-sh wrk_benchmark.sh ${REULTS_WRK}
+export RESULTS_WRK=${PWD}/results/hello-world/gcp/g1-small/raw/go-net-http.txt
+sh wrk_benchmark.sh ${RESULTS_WRK}
 ```
 
 6. Commit the benchmarck results to this repo
    
 ```bash
 git checkout -b results-golang-g-small
-git add ${REULTS_WRK}
+git add ${RESULTS_WRK}
 git commit -m 'add wrk result for golang-g-small'
 git push origin results-golang-g-small
 ```
