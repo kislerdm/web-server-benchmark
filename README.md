@@ -51,6 +51,71 @@ instance:
 
 # Test
 
+## Procedure
+
+1. Spinup a VM
+
+2. Install benchmark tool, configure git and clone this repo:
+
+```bash
+sudo echo 'deb http://ftp.de.debian.org/debian sid main' >> /etc/apt/sources.list
+sudo apt-get update && sudo apt-get -y upgrade
+sudo apt-get install -y git build-essential libssl-dev
+git config --global user.name YOU_GIT_NAME YOU_GIT_FAMILYNAME
+git config --global user.email YOU_GIT@EMAIL.com
+git clone https://github.com/wg/wrk.git wrk
+cd wrk
+make
+sudo cp wrk /usr/local/bin
+cd ../
+rm -rf wrk
+git clone https://github.com/wg/wrk.git wrk
+git clone https://github.com/kislerdm/web-server-benchmark.git web-server-benchmark
+cd web-server-benchmark
+```
+
+3. Install required software, e.g. golang:
+
+```bash
+sudo apt-get install golang
+wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+tar -xvf go1.12.7.linux-amd64.tar.gz,
+sudo mv go /usr/local,
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/web-server-benchmark/
+echo 'PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
+```  
+
+4. Launch the web server for benchmarking, e.g.:
+
+```bash
+cd web-server-benchmark/example/hello-world/go/net-http
+go build -o run_server api.go
+./run_server &
+```
+
+5. Launch the benchmark
+
+```bash
+cd web-server-benchmark/benchmark
+export REULTS_WRK=${PWD}/results/hello-world/gcp/g1-small/raw/go-net-http.txt
+sh wrk_benchmark.sh ${REULTS_WRK}
+```
+
+6. Commit the benchmarck results to this repo
+   
+```bash
+git checkout -b results-golang-g-small
+git add ${REULTS_WRK}
+git commit -m 'add wrk result for golang-g-small'
+git push origin results-golang-g-small
+```
+
+7. Open pull request
+8. Repeat the steps
+
+
+
 ## Hello World!
 
 ## API json contract
