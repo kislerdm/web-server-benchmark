@@ -3,87 +3,80 @@
 </head>
 
 <body>
-  <div id="myDiv"></div>
+  <div id="fig_throughput"></div>
   <script>
-    var traceGoLang = {
-      y: [4187, 28290, 28565, 28565, 28747, 28969],
-      type: 'box',
-      name: 'go-net/http',
+    var data = [{
+        name: 'go-net/http',
+        requests: [4187, 28290, 28565, 28565, 28747, 28969],
+      },
+      {
+        name: 'nginx-openresty',
+        requests: [23770, 25730, 26242, 26242, 26440, 26868],
+      },
+      {
+        name: 'nodejs-express',
+        requests: [929, 16210, 16424, 16424, 16540, 16696],
+      },
+      {
+        name: 'py-sanic',
+        requests: [2702, 9707, 9800, 9800, 9870, 9979],
+      },
+      {
+        name: 'py-aiohttp',
+        requests: [2580, 2750, 2780, 2780, 2800, 2838],
+      },
+      {
+        name: 'py-tornado',
+        requests: [735, 2740, 2760, 2760, 2780, 2818],
+      },
+      {
+        name: 'py-falcon',
+        requests: [2150, 2580, 2626, 2626, 2707],
+      },
+      {
+        name: 'py-flask',
+        requests: [385, 1880, 1909, 1909, 1919, 1949],
+      },
+      {
+        name: 'py-werkzeug',
+        requests: [1240, 1300, 1313, 1313, 1333, 1363],
+      },
+      {
+        name: 'r-plumber',
+        requests: [10, 660, 670, 670, 680, 707],
+      },
+      {
+        name: 'julia-genie',
+        requests: [10, 19, 20, 20, 20, 20],
+      },
+    ];
+    
+    var traces = [];
+    var annotations = [];
+    for (i = 0; i < data.length; i++) {
+       traces.push({
+         y: data[i].requests,
+         name: data[i].name,
+         type: 'box',
+       });
+       annotations.push({
+          x: i + .5,
+          y: data[i].requests[2],
+          text: data[i].requests[2],
+          showarrow: false,
+          align: "center",
+       });
     };
-
-    var traceNginx = {
-      y: [23770, 25730, 26242, 26242, 26440, 26868],
-      type: 'box',
-      name: 'nginx-openresty',
-    };
-
-    var traceNode = {
-      y: [929, 16210, 16424, 16424, 16540, 16696],
-      type: 'box',
-      name: 'nodejs-express',
-    };
-
-    var tracePySanic = {
-      y: [2702, 9707, 9800, 9800, 9870, 9979],
-      type: 'box',
-      name: 'py-sanic',
-    };
-
-    var tracePyAiohttp = {
-      y: [2580, 2750, 2780, 2780, 2800, 2838],
-      type: 'box',
-      name: 'py-aiohttp',
-    };
-
-    var tracePyTorando = {
-    y: [735, 2740, 2760, 2760, 2780, 2818],
-    type: 'box',
-    name: 'py-tornado',
-    };
-
-    var tracePyFalcon = {
-      y: [2150, 2580, 2626, 2626, 2707],
-      type: 'box',
-      name: 'py-falcon',
-    };
-
-    var tracePyFlask = {
-      y: [385, 1880, 1909, 1909, 1919, 1949],
-      type: 'box',
-      name: 'py-flask',
-    };
-
-    var tracePyWerkzeug = {
-      y: [1240, 1300, 1313, 1313, 1333, 1363],
-      type: 'box',
-      name: 'py-werkzeug',
-    };
-
-    var traceRPlumber = {
-      y: [10, 660, 670, 670, 707, 707],
-      type: 'box',
-      name: 'r-plumber',
-    };
-
-    var traceJulia = {
-      y: [10, 19, 20, 20, 20, 20],
-      type: 'box',
-      name: 'julia-genie',
-    };
-      
-    var data = [traceGoLang, traceNginx, traceNode, tracePySanic,
-                tracePyAiohttp, tracePyTorando, tracePyFalcon,
-                tracePyFlask, tracePyWerkzeug, traceRPlumber, traceJulia];
 
     var layout = {
-      title: 'Throughput for 1 connection, 1 thread',
+      title: 'API Throughput <br> 1 connection, 1 thread',
       yaxis: {
         title: 'Requests per sec.',
         zeroline: true,
       },
+      annotations: annotations
     };
 
-    Plotly.newPlot('myDiv', data, layout);
-
+    Plotly.newPlot('fig_throughput', traces, layout);
   </script>
 </body>
