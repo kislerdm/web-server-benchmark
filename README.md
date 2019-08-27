@@ -29,6 +29,8 @@ julia:
   - version: 1.1.1
   - libs:
     - Genie: 0.15.0
+nginx:
+  - version: openresty/1.15.8.1
 ```
 
 # Benchmarking tools
