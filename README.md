@@ -128,7 +128,7 @@ The API response is expected as:
 
 ## Result
 
-![Throughput](benchmark/results/hello-world/gcp/g1-small/c1_t1_d10.jpg)
+![Throughput](benchmark/dataviz/hello-world/gcp/g1-small/d10_t1_c1/fig_c1_t1_d10.jpg)
 
 # Contribution
 
