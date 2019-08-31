@@ -8,4 +8,4 @@ async def handler(request):
 if __name__ == "__main__":
     app = web.Application()
     app.router.add_get('/', handler)
-    web.run_app(app, port=PORT, access_log=None)
+    web.run_app(app, port=PORT, access_log=False)
