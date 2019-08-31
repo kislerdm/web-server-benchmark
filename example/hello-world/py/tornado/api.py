@@ -1,5 +1,12 @@
 import tornado.ioloop
 import tornado.web
+import logging
+
+# turn off tornado logger
+logs_tornado = logging.NullHandler()
+logs_tornado.setLevel(logging.DEBUG)
+logging.getLogger("tornado.access").addHandler(logs_tornado)
+logging.getLogger("tornado.access").propagate = False
 
 
 class Handler(tornado.web.RequestHandler):
