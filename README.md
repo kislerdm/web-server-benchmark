@@ -25,6 +25,7 @@ r:
   - version: 3.6.1
   - libs:
     - plumber: 0.4.6
+    - restrserve: 0.2.0
 julia:
   - version: 1.1.1
   - libs:
