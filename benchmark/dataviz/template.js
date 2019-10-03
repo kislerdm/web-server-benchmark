@@ -42,6 +42,7 @@ var layout_throughput = {
     title: 'Requests per sec.',
     zeroline: true,
   },
+  showlegend: false,
   annotations: annotations['throughput']
 };
 
@@ -52,6 +53,7 @@ var layout_latency = {
     title: 'Latency [usec.]',
     zeroline: true,
   },
+  showlegend: false,
   annotations: annotations['latency']
 };
 

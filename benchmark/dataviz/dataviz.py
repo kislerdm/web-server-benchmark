@@ -48,9 +48,6 @@ var threads = {BECNHMARK_PAR['threads']};
 var duration = {BECNHMARK_PAR['duration']};
 var data = {json.dumps(data)}
     """
-    
-    print(js_template)
-    sys.exit(0)
   
     js_file = open(TEMPLATE_JS, 'r').read()
     js_file = f"{js_template}\n{js_file}"

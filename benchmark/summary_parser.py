@@ -17,7 +17,6 @@ SPLIT_TESTS = "--new-test--"
 
 def parser(document: str) -> Tuple[dict, str]:
     """ Function to parse summary file """
-
     def _scanner(pattern: str, search_str: str, **args) -> str:
         found_element = re.findall(pattern, search_str, **args)
         if found_element:
@@ -26,7 +25,6 @@ def parser(document: str) -> Tuple[dict, str]:
 
     def _tab_parser(table_lst: list, delimeter: str = ',', header: bool = True) -> dict:
         """ Function to parse tables from the summary """
-
         reader = csv.reader(table_lst, delimiter=delimeter)
 
         try:
@@ -73,7 +71,6 @@ def parser(document: str) -> Tuple[dict, str]:
                 _scanner("requests in (\d+.\d+).?,", document_list[0], flags=re.I))
         except Exception as ex:
             return None, f"Parsing of the 1st summary part error:\n{ex}"
-
         # parse pt.2 of the summary
         template['latency'] = _tab_parser(document_list[1].split('\n')[1:])
         # parse pt.3 of the summary
@@ -87,7 +84,6 @@ def parser(document: str) -> Tuple[dict, str]:
 
 def reader(path: str) -> Tuple[List[str], str]:
     """ Function to read the file """
-
     if not os.path.isfile(path):
         return None, "No file %s found", path
 
@@ -100,7 +96,6 @@ def reader(path: str) -> Tuple[List[str], str]:
 
 
 def writer(path: str, obj: dict) -> str:
-
     try:
         with open(path, 'w') as f:
             json.dump(obj, f)
@@ -119,7 +114,6 @@ if __name__ == "__main__":
         sys.exit(0)
 
     for iFile in files:
-
         fin, err = reader(os.path.join(PATH_RAW, iFile))
         if err:
             print(err)

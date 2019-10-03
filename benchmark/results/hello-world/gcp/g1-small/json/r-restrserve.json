@@ -1,0 +1,1 @@
+[{"duration": 10, "threads": 1, "connections": 1, "requests": 16339, "total_time": 10.0, "latency": {"percentile": ["1e-06", "25", "50", "75", "100"], "latency_us": ["521", "559", "570", "588", "44351"]}, "req_throughput": {"percentile": ["1e-06", "25", "50", "75", "100"], "requests": ["464", "1636", "1660", "1696", "1767"]}}]
