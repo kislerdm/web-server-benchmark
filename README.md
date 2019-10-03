@@ -70,7 +70,6 @@ make
 sudo cp wrk /usr/local/bin
 cd ../
 rm -rf wrk
-git clone https://github.com/wg/wrk.git wrk
 git clone https://github.com/kislerdm/web-server-benchmark.git web-server-benchmark
 cd web-server-benchmark
 ```
