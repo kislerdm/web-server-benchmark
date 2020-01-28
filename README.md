@@ -13,6 +13,7 @@ python:
     - falcon: 2.0.0
     - werkzeug: 0.15.5
     - gunicorn: 19.9.0
+    - uwsgi: 2.0.18
 go: 
   - version: 1.12.7
   - libs: 
