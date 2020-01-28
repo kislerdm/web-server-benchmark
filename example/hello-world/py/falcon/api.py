@@ -1,6 +1,7 @@
 import json
 import falcon
 
+
 app = falcon.API()
 
 
@@ -11,6 +12,7 @@ class Handler(object):
         resp.content_type = "application/json"
         resp.body = json.dumps({"data": "Hello world!"})
         
+
 handler = Handler()
 
 app.add_route('/', handler)

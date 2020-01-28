@@ -3,6 +3,8 @@ from werkzeug.datastructures import Headers
 from werkzeug.serving import run_simple
 import json
 
+
+HOST = "0.0.0.0"
 PORT = 4500
 
 
@@ -15,6 +17,6 @@ def handler(request):
 
 
 if __name__ == '__main__':
-    run_simple(hostname='0.0.0.0', port=PORT, application=handler, 
+    run_simple(hostname=HOST, port=PORT, application=handler, 
                use_debugger=False, 
                threaded=True)

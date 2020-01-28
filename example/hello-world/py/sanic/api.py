@@ -9,9 +9,7 @@ app = Sanic(__name__)
 
 @app.route("/")
 async def handler(request):
-    return response.json(body={"data": "Hello world!"},
-                         content_type='application/json',
-                         status=200)
+    return response.json(body={"data": "Hello world!"})
 
 
 if __name__ == "__main__":
