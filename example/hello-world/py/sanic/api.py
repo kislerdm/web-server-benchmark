@@ -1,11 +1,18 @@
 from sanic import Sanic, response
 
+
+HOST = "0.0.0.0"
 PORT = 4500
 
+app = Sanic(__name__)
+
+
+@app.route("/")
 async def handler(request):
-    return response.json(body={"data": "Hello world!"})
+    return response.json(body={"data": "Hello world!"},
+                         content_type='application/json',
+                         status=200)
+
 
 if __name__ == "__main__":
-    app = Sanic()
-    app.add_route(handler, '/')
-    app.run(host="0.0.0.0", port=PORT, access_log=False)
+    app.run(host=HOST, port=PORT, debug=False)
